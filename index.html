@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>台南時光：深度美食與藝術三日遊</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8f5f0; color: #4a4a4a; line-height: 1.6; }
+        .serif { font-family: 'Noto Serif TC', serif; }
+        .gradient-bg { background: linear-gradient(135deg, #8d775f 0%, #5d4a36 100%); }
+        .card { transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); background: white; border-radius: 24px; padding: 24px; margin-bottom: 20px; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
+        .nav-btn { background: #8d775f; color: white !important; padding: 6px 14px; border-radius: 99px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+        .nav-btn:hover { background: #5d4a36; }
+        .food-tag { background-color: #fcfaf7; color: #8d775f; padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; border: 1px solid #eee; }
+        .day-header { border-left: 5px solid #8d775f; padding-left: 15px; margin-bottom: 25px; }
+        .sticky-header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #eee; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="pb-24">
+
+    <header class="gradient-bg text-white py-16 px-8 text-center shadow-xl">
+        <h1 class="serif text-4xl mb-2 tracking-[0.2em] font-black">台南．慢旅時光</h1>
+        <p class="text-[10px] opacity-60 uppercase tracking-[0.4em]">Gu Gen Hotel - 3 Days Full Itinerary</p>
+    </header>
+
+    <nav class="sticky-header py-4 px-4 flex justify-around text-xs font-black uppercase tracking-widest text-stone-500">
+        <a href="#day1" class="hover:text-amber-900 transition-colors">Day 1 美食</a>
+        <a href="#day2" class="hover:text-amber-900 transition-colors">Day 2 藝術</a>
+        <a href="#day3" class="hover:text-amber-900 transition-colors">Day 3 老街</a>
+    </nav>
+
+    <main class="max-w-3xl mx-auto p-6">
+
+        <section id="day1" class="mb-16">
+            <div class="day-header">
+                <h2 class="serif text-3xl text-amber-900">Day 01 府城的午後與燈火</h2>
+                <p class="text-xs text-stone-400 font-bold uppercase">Historic Core & Night Market</p>
+            </div>
+            
+            <div class="card">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-amber-800 font-bold text-xs">15:00 - CHECK-IN</span>
+                        <h3 class="font-bold text-xl text-stone-800">古根嚼旅 & 國華美食區</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=古根嚼旅" target="_blank" class="nav-btn"><i class="fas fa-location-arrow"></i> 導航</a>
+                </div>
+                <p class="text-stone-500 text-sm mb-4">放下行李，樓下即刻開吃。步行圈包含葉家小卷米粉、富盛號碗粿。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag">阿松割包</span> <span class="food-tag">修安豆花</span> <span class="food-tag">金得春捲</span> <span class="food-tag">邱家小卷米粉</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-amber-800 font-bold text-xs">17:30 - EVENING WALK</span>
+                        <h3 class="font-bold text-xl text-stone-800">神農街 & 普濟殿燈籠海</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=普濟殿" target="_blank" class="nav-btn"><i class="fas fa-location-arrow"></i> 導航</a>
+                </div>
+                <p class="text-stone-500 text-sm mb-4">漫步老屋改建的文創區，夜晚的神農街與普濟殿千盞燈籠是台南最美的縮影。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag">蜷尾家霜淇淋</span> <span class="food-tag">拾參馬卡龍</span> <span class="food-tag">泰成水果店</span>
+                </div>
+            </div>
+
+            <div class="card bg-stone-900 text-white shadow-2xl">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-amber-400 font-bold text-xs">19:30 - LATE NIGHT</span>
+                        <h3 class="font-bold text-xl text-white">台南夜市大會戰</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=台南夜市" target="_blank" class="nav-btn bg-amber-500 text-black border-none"><i class="fas fa-utensils"></i> 導航</a>
+                </div>
+                <div class="grid grid-cols-1 gap-1 text-[11px] mb-4 text-stone-300">
+                    <p>口訣：大大武花大武花</p>
+                    <p>一二五：大東 | 四六日：花園 | 三六：武聖</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag bg-white/10 border-none text-white">二師兄滷味</span> <span class="food-tag bg-white/10 border-none text-white">延記臭豆腐</span> <span class="food-tag bg-white/10 border-none text-white">陳記魚蛋</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="day2" class="mb-16">
+            <div class="day-header">
+                <h2 class="serif text-3xl text-amber-900">Day 02 城市美學與奇美之美</h2>
+                <p class="text-xs text-stone-400 font-bold uppercase">Arts & Chimei 3HR Depth</p>
+            </div>
+
+            <div class="card border-t-4 border-amber-800">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-amber-800 font-bold text-xs">10:30 - ART MORNING</span>
+                        <h3 class="font-bold text-xl text-stone-800">南美館 2 館 & 林百貨</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=台南市美術館2館" target="_blank" class="nav-btn"><i class="fas fa-location-arrow"></i> 導航</a>
+                </div>
+                <p class="text-stone-500 text-sm mb-4">欣賞大師級白色建築。午餐推薦在孔廟商圈周邊解決。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag">莉莉水果店</span> <span class="food-tag">福記肉圓</span> <span class="food-tag">阿霞飯店</span>
+                </div>
+            </div>
+
+            <div class="card bg-stone-100 border-2 border-dashed border-stone-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-amber-800 font-bold text-xs italic">HIGHLIGHT</span>
+                        <h3 class="font-bold text-xl text-stone-800">奇美博物館 (3小時深度遊)</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=奇美博物館" target="_blank" class="nav-btn"><i class="fas fa-university"></i> 導航</a>
+                </div>
+                <p class="text-stone-500 text-sm mb-4 leading-relaxed">世界級西洋藝術典藏。必看兵器廳、樂器廳與羅丹藝廊。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag bg-white">阿裕牛肉涮涮鍋</span> <span class="food-tag bg-white">仁德糖廠冰店</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="text-amber-800 font-bold text-xs">19:30 - MIDNIGHT KITCHEN</span>
+                        <h3 class="font-bold text-xl text-stone-800">保安路 & 友愛街宵夜</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=保安路美食" target="_blank" class="nav-btn"><i class="fas fa-location-arrow"></i> 導航</a>
+                </div>
+                <p class="text-stone-500 text-sm mb-4">台南人的深夜食堂，飯店下樓步行 3 分鐘即達。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag">阿明豬心</span> <span class="food-tag">阿鳳浮水魚羹</span> <span class="food-tag">小杜意麵</span> <span class="food-tag">友愛鹹酥雞</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="day3">
+            <div class="day-header">
+                <h2 class="serif text-3xl text-amber-900">Day 03 巷弄文學與米街散策</h2>
+                <p class="text-xs text-stone-400 font-bold uppercase">Literary Walks & Souvenirs</p>
+            </div>
+
+            <div class="card">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-800">蝸牛巷 (葉石濤文學)</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=台南蝸牛巷" target="_blank" class="nav-btn"><i class="fas fa-location-arrow"></i> 導航</a>
+                </div>
+                <p class="text-stone-500 text-sm mb-4">穿梭於百年老屋巷弄，尋找文學足跡。這裡有台南最優雅的慢步調。</p>
+            </div>
+
+            <div class="card bg-amber-50 border border-amber-100">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="font-bold text-xl text-amber-900">新美街 (米街) 與正興街</h3>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=新美街" target="_blank" class="nav-btn"><i class="fas fa-location-arrow"></i> 導航</a>
+                </div>
+                <p class="text-stone-600 text-sm mb-4">職人精神彙集的古老街道。離開前帶份最有質感的伴手禮。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="food-tag bg-white">名東現烤蛋糕</span> <span class="food-tag bg-white">堯平布朗尼</span> <span class="food-tag bg-white">雙生綠豆沙</span> <span class="food-tag bg-white">連得堂煎餅</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-stone-100 flex items-center justify-between z-[100] shadow-2xl">
+        <a href="https://www.google.com/maps/search/?api=1&query=古根嚼旅" target="_blank" class="flex flex-col items-center ml-2">
+            <i class="fas fa-hotel text-stone-400"></i>
+            <span class="text-[8px] font-black mt-1">HOME</span>
+        </a>
+        
+        <a href="https://www.google.com/maps/search/?api=1&query=台南景點" target="_blank" class="gradient-bg text-white px-12 py-3 rounded-full text-xs font-black shadow-lg shadow-amber-900/20">
+            <i class="fas fa-map-marked-alt mr-2"></i> 一鍵開啟導航地圖
+        </a>
+        
+        <div class="text-[8px] font-black text-stone-300 mr-2 text-right">
+            TAINAN<br>URBAN GUIDE
+        </div>
+    </footer>
+
+</body>
+</html>
