@@ -3,71 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>台南時光</title>
+    <title>台南三日藝術慢旅</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8f5f0; color: #4a4a4a; overflow-x: hidden; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8f5f0; color: #4a4a4a; -webkit-tap-highlight-color: transparent; }
         .serif { font-family: 'Noto Serif TC', serif; }
         .gradient-bg { background: linear-gradient(135deg, #8d775f 0%, #5d4a36 100%); }
         
-        /* 行程卡片樣式 */
-        .card { transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); background: white; border-radius: 20px; cursor: pointer; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card::after { content: '點擊查看詳情'; position: absolute; bottom: 10px; right: 15px; font-size: 10px; opacity: 0.5; font-weight: bold; }
+        /* 卡片設計 */
+        .card { transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); background: white; border-radius: 20px; cursor: pointer; padding: 20px; margin-bottom: 15px; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .card::after { content: '查看攻略 \2192'; position: absolute; bottom: 15px; right: 20px; font-size: 10px; color: #8d775f; font-weight: bold; opacity: 0.6; }
 
-        /* 彈窗樣式 */
-        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content { position: absolute; bottom: 0; left: 0; width: 100%; max-height: 90vh; background: white; border-radius: 30px 30px 0 0; padding: 30px; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s ease-out; }
+        /* 彈窗設計 */
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+        .modal-content { position: absolute; bottom: 0; left: 0; width: 100%; max-height: 85vh; background: white; border-radius: 30px 30px 0 0; padding: 30px; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s ease-out; }
         .modal-open .modal-content { transform: translateY(0); }
         
-        .food-item { border-bottom: 1px solid #eee; padding: 12px 0; display: flex; justify-content: space-between; align-items: center; }
-        .food-item:last-child { border-bottom: none; }
-        .nav-btn-large { background: #8d775f; color: white !important; width: 100%; padding: 15px; border-radius: 15px; display: block; text-align: center; font-weight: bold; margin-top: 20px; text-decoration: none; }
+        .food-item { border-bottom: 1px solid #f1f1f1; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .safe-tag { background: #fdf2f2; color: #dc2626; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: bold; border: 1px solid #fee2e2; }
+        .nav-btn-large { background: #8d775f; color: white !important; width: 100%; padding: 16px; border-radius: 12px; display: block; text-align: center; font-weight: bold; margin-top: 20px; text-decoration: none; }
         
-        .tag-safe { background: #fef2f2; color: #dc2626; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+        .day-label { border-left: 4px solid #8d775f; padding-left: 10px; margin: 30px 0 15px 0; font-weight: 900; color: #5d4a36; }
     </style>
 </head>
 <body class="pb-24">
 
     <header class="gradient-bg text-white py-12 px-8 text-center shadow-xl">
-        <h1 class="serif text-4xl mb-2 tracking-[0.1em] font-black">台南．深度指南</h1>
-        <p class="text-[10px] opacity-70 tracking-[0.3em]">BEEF-FREE | TAP TO EXPLORE</p>
+        <h1 class="serif text-4xl mb-1 tracking-widest font-black">台南．慢旅時光</h1>
+        <p class="text-[10px] opacity-70 tracking-[0.4em]">SAFE FOOD | NO BEEF | 3-DAY TRIP</p>
     </header>
 
-    <main class="max-w-xl mx-auto p-6 space-y-6">
+    <main class="max-w-xl mx-auto p-5">
+
+        <div class="day-label serif text-2xl">DAY 01 府城美食啟程</div>
         
-        <div class="day-header border-l-4 border-amber-800 pl-4 mb-4">
-            <h2 class="serif text-2xl font-bold">美食與深夜探索</h2>
+        <div class="card relative" onclick="openModal('guohua')">
+            <span class="text-xs font-bold text-stone-400">15:00 CHECK-IN</span>
+            <h3 class="serif text-xl font-bold text-stone-800 mt-1">國華街美食區</h3>
+            <p class="text-stone-400 text-xs mt-1 italic">嚴選無牛老店：小卷米粉、碗粿、豆花</p>
         </div>
 
-        <div class="card p-6" onclick="openModal('guohua')">
-            <span class="text-amber-800 font-bold text-xs uppercase tracking-widest">Day 01 下午</span>
-            <h3 class="serif text-xl font-black mt-1">國華街美食戰區</h3>
-            <p class="text-stone-400 text-xs mt-2">台南人的廚房，從早吃到晚... <span class="text-amber-800">more</span></p>
+        <div class="card relative bg-stone-900 text-white" onclick="openModal('youai')">
+            <span class="text-xs font-bold text-amber-500">21:00 NIGHT LIFE</span>
+            <h3 class="serif text-xl font-bold mt-1 text-white">友愛市場深夜食堂</h3>
+            <p class="text-white/50 text-xs mt-1 italic">飯店對面！全台最正點的深夜菜市場</p>
         </div>
 
-        <div class="card p-6 bg-stone-900 text-white" onclick="openModal('youai')">
-            <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Day 01 深夜</span>
-            <h3 class="serif text-xl font-black mt-1">友愛市場深夜食堂</h3>
-            <p class="text-stone-400 text-xs mt-2 text-white/60">飯店對面，最台派的夜生活... <span class="text-amber-400">more</span></p>
+        <div class="day-label serif text-2xl">DAY 02 藝術與西洋典藏</div>
+
+        <div class="card relative" onclick="openModal('museums')">
+            <span class="text-xs font-bold text-stone-400">10:30 ART MORNING</span>
+            <h3 class="serif text-xl font-bold text-stone-800 mt-1">南美館 2 館 & 林百貨</h3>
+            <p class="text-stone-400 text-xs mt-1 italic">白色建築美學與日治百貨魅力</p>
         </div>
 
-        <div class="day-header border-l-4 border-amber-800 pl-4 mb-4 pt-4">
-            <h2 class="serif text-2xl font-bold">藝術與深度文化</h2>
+        <div class="card relative border-t-4 border-amber-800" onclick="openModal('chimei')">
+            <span class="text-xs font-bold text-amber-800">14:00 HIGHLIGHT</span>
+            <h3 class="serif text-xl font-bold text-stone-800 mt-1">奇美博物館 (3小時)</h3>
+            <p class="text-stone-400 text-xs mt-1 italic">亞洲最強西洋兵器與小提琴館</p>
         </div>
 
-        <div class="card p-6 border-t-4 border-amber-800" onclick="openModal('chimei')">
-            <span class="text-amber-800 font-bold text-xs uppercase tracking-widest">Day 02 全天</span>
-            <h3 class="serif text-xl font-black mt-1">奇美博物館 (3小時)</h3>
-            <p class="text-stone-400 text-xs mt-2">走進亞洲最強西洋提琴與兵器館... <span class="text-amber-800">more</span></p>
+        <div class="card relative" onclick="openModal('pork-dinner')">
+            <span class="text-xs font-bold text-stone-400">19:30 DINNER</span>
+            <h3 class="serif text-xl font-bold text-stone-800 mt-1">保安路：豬肉美食殿堂</h3>
+            <p class="text-stone-400 text-xs mt-1 italic">避開牛肉湯，迎接台南最強豬心與魚羹</p>
         </div>
 
-        <div class="card p-6" onclick="openModal('snail')">
-            <span class="text-amber-800 font-bold text-xs uppercase tracking-widest">Day 03 上午</span>
-            <h3 class="serif text-xl font-black mt-1">蝸牛巷文學散策</h3>
-            <p class="text-stone-400 text-xs mt-2">在老巷弄裡找尋慢活的勇氣... <span class="text-amber-800">more</span></p>
+        <div class="day-label serif text-2xl">DAY 03 老街散策與伴手禮</div>
+
+        <div class="card relative" onclick="openModal('streets')">
+            <span class="text-xs font-bold text-stone-400">10:00 MORNING WALK</span>
+            <h3 class="serif text-xl font-bold text-stone-800 mt-1">蝸牛巷、新美街、正興街</h3>
+            <p class="text-stone-400 text-xs mt-1 italic">走入葉石濤筆下的慢活，帶回最有台南味的伴手禮</p>
         </div>
 
     </main>
@@ -75,94 +85,81 @@
     <div id="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="w-12 h-1 bg-stone-200 rounded-full mx-auto mb-6"></div>
-            <div id="modal-body">
-                </div>
-            <button onclick="closeModal()" class="w-full py-4 text-stone-400 text-sm font-bold">關閉視窗</button>
+            <div id="modal-body"></div>
+            <button onclick="closeModal()" class="w-full py-5 text-stone-300 text-xs font-bold tracking-widest uppercase">CLOSE</button>
         </div>
     </div>
 
     <script>
         const data = {
             'guohua': {
-                title: '國華街二段：美食震央',
-                intro: '國華街是台南美食的代名詞，這段路聚集了無數經營超過五十年的老店。這裡特別適合不吃牛的朋友，因為豬肉、海鮮料理是這裡的絕對強項。',
-                food: [
-                    '葉家小卷米粉 (台南小卷始祖)',
-                    '阿松割包 (特製豬舌包必試)',
-                    '富盛號碗粿 (傳統黑碗粿)',
-                    '修安扁擔豆花 (古法手工製)',
-                    '金得春捲 (台南人的甜春捲)',
-                    '江水號八寶冰 (傳承三代)',
-                    '一味品碗粿 (老饕首選)',
-                    '龜龜毛毛泰國奶茶'
+                title: '國華街：無牛美食推薦',
+                intro: '國華街是台南的美食核心，我們已為過敏家人避開所有牛肉。這裡的豬肉、海鮮與手工點心是全台最強。',
+                list: [
+                    '葉家小卷米粉 (純海鮮鮮甜)', '阿松割包 (招牌豬舌包極嫩)', '富盛號碗粿 (純米漿製作)', '一味品碗粿 (老牌職人風味)', '修安扁擔豆花 (Q彈粉粿必加)', '江水號八寶冰 (傳承三代)', '金得春捲 (台南特色乾炒甜食)', '水仙宮米糕 (傳統豬肉燥香)', '阿法紅豆泥', '七誠米粿'
                 ],
                 nav: 'https://www.google.com/maps/search/國華街美食'
             },
             'youai': {
-                title: '友愛市場：深夜聚落',
-                intro: '這裡白天是傳統菜市場，晚上則變身為充滿現代感與文青氣息的深夜聚落。就在飯店正對面，是全家消夜的最佳去處。',
-                food: [
-                    '友愛鹹酥雞 (必吃蒜香)',
-                    '深夜炒饅頭 (排隊名店)',
-                    '有愛市場 (各類日式料理)',
-                    '大排檔熱炒 (無牛選項多)',
-                    '市場手作飯糰',
-                    '精釀啤酒攤位',
-                    '香噴噴滷味串燒'
+                title: '友愛市場：深夜消夜',
+                intro: '夜晚的友愛市場是文青與饕客的秘密基地。不只有鹹酥雞，更有許多日式、台式的創意無牛料理。',
+                list: [
+                    '友愛鹹酥雞 (香酥蒜味)', '深夜炒饅頭 (招牌必點)', '有愛市場豬肉串', '台南炸雞洋行', '市場微醺精釀', '各式手作關東煮', '日式燒肉飯 (豬肉)', '深夜炭烤吐司'
                 ],
-                nav: 'https://www.google.com/maps/search/友愛市場'
+                nav: 'https://www.google.com/maps/search/友愛市場消夜'
+            },
+            'museums': {
+                title: '南美館 2 館 & 林百貨',
+                intro: '欣賞白色唯美建築。中午可步行至孔廟商圈，那裡有無數豬肉料理名店。',
+                list: [
+                    '莉莉水果店 (台南冰品標竿)', '福記肉圓 (蒸式口感)', '度小月擔仔麵 (豬肉肉燥)', '檨仔林阿全碗粿', '南美春室 (美術館頂樓甜點)', '窄門咖啡 (巷弄驚喜)', '林百貨限定椪餅'
+                ],
+                nav: 'https://www.google.com/maps/search/台南市美術館2館'
             },
             'chimei': {
-                title: '奇美博物館：藝術殿堂',
-                intro: '預留 3 小時深度參觀。推薦優先參觀「兵器廳」與「提琴館」，這裡是亞洲最完整的提琴收藏地。戶外的阿波羅噴泉與眾神像橋更是不容錯過。',
-                food: [
-                    '仁德糖廠冰店 (傳統紅豆冰)',
-                    '阿霞飯店 (中西區本店/無牛桌菜)',
-                    '南美春室 (美術館內的絕美甜點)',
-                    '度小月擔仔麵 (豬肉肉燥)',
-                    '莉莉水果店 (消暑聖品)'
+                title: '奇美博物館：深度 3 小時',
+                intro: '建議順序：阿波羅噴泉 → 眾神橋 → 2樓兵器廳 → 1樓提琴廳。館內藝術氣息極佳，請預留充足時間。',
+                list: [
+                    '仁德糖廠冰店 (必吃紅豆冰)', '阿霞飯店 (中西區名店/推薦豬蹄)', '度小月 (中西區/豬肉肉燥)', '深藍千層蛋糕 (仁德店)', '奇美咖啡館'
                 ],
                 nav: 'https://www.google.com/maps/search/奇美博物館'
             },
-            'snail': {
-                title: '蝸牛巷：慢步文學',
-                intro: '由文學家葉石濤故居周邊構成的老弄。每一轉角都藏著一隻小蝸牛，帶領你感受「適合人們做夢、幹活、悠然過日子的城市」。',
-                food: [
-                    '名東現烤蛋糕 (排隊也甘願)',
-                    '雙生綠豆沙牛奶',
-                    '哈利 8 號早餐店',
-                    '堯平布朗尼 (名產)',
-                    '恭仔肉燥意麵 (古早豬肉香)',
-                    '連得堂煎餅 (每人限購兩包)'
+            'pork-dinner': {
+                title: '保安路：豬肉/海鮮殿堂',
+                intro: '保安路是台南不吃牛者的天堂。這裡的豬心處理得極其乾淨，魚羹鮮甜無比。',
+                list: [
+                    '阿明豬心冬粉 (全台最知名豬肉料理)', '阿鳳浮水魚羹 (Q彈鮮甜)', '醇涎坊意麵 (古早味豬油香)', '下大道旗魚羹', '阿龍香腸熟肉', '木溪米糕', '茂雄蝦仁肉圓'
                 ],
-                nav: 'https://www.google.com/maps/search/蝸牛巷'
+                nav: 'https://www.google.com/maps/search/保安路美食'
+            },
+            'streets': {
+                title: '老街慢步與伴手禮',
+                intro: '走入巷弄，這裡的每一口甜與鹹都是台南的歷史。',
+                list: [
+                    '名東蛋糕 (南瓜起司必買)', '雙生綠豆沙牛奶', '哈利8號早餐', '堯平布朗尼 (多種口味)', '恭仔意麵 (手工豬肉麵)', '連得堂煎餅 (每日限量)', '葡吉麵包 (羅宋麵包必搶)'
+                ],
+                nav: 'https://www.google.com/maps/search/台南蝸牛巷'
             }
         };
 
         function openModal(key) {
             const item = data[key];
-            let foodHtml = item.food.map(f => `<div class="food-item"><span>${f}</span><span class="tag-safe">NO BEEF</span></div>`).join('');
+            let listHtml = item.list.map(f => `<div class="food-item"><span>${f}</span><span class="safe-tag">NO BEEF</span></div>`).join('');
             
             document.getElementById('modal-body').innerHTML = `
                 <h2 class="serif text-2xl font-black text-amber-900 mb-2">${item.title}</h2>
                 <p class="text-stone-500 text-sm leading-relaxed mb-6">${item.intro}</p>
-                <div class="day-header border-l-4 border-amber-800 pl-4 mb-4">
-                    <h3 class="text-sm font-bold text-stone-800 italic uppercase">推薦 5-10 間嚴選美食</h3>
-                </div>
-                <div class="mb-6">${foodHtml}</div>
-                <a href="${item.nav}" target="_blank" class="nav-btn-large"><i class="fas fa-location-arrow mr-2"></i> 開始 Google Maps 導航</a>
+                <div class="border-l-4 border-amber-800 pl-4 mb-4"><h3 class="text-xs font-bold text-stone-800 italic uppercase tracking-wider">嚴選推薦推薦名單</h3></div>
+                <div class="mb-6">${listHtml}</div>
+                <a href="${item.nav}" target="_blank" class="nav-btn-large"><i class="fas fa-location-arrow mr-2"></i> 開始地圖導航</a>
             `;
             document.getElementById('modal').style.display = 'block';
-            setTimeout(() => {
-                document.body.classList.add('modal-open');
-            }, 10);
+            setTimeout(() => document.body.classList.add('modal-open'), 10);
         }
 
         function closeModal() {
             document.body.classList.remove('modal-open');
-            setTimeout(() => {
-                document.getElementById('modal').style.display = 'none';
-            }, 300);
+            setTimeout(() => document.getElementById('modal').style.display = 'none', 300);
         }
     </script>
 
