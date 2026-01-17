@@ -12,162 +12,142 @@
         body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8f5f0; color: #4a4a4a; -webkit-tap-highlight-color: transparent; }
         .serif { font-family: 'Noto Serif TC', serif; }
         
-        /* Header 樣式 */
-        .header-bg { background-color: #7d6b58; color: white; padding: 40px 20px; text-align: center; }
-        .hotel-tag { background-color: rgba(255,255,255,0.2); border-radius: 99px; padding: 4px 16px; display: inline-flex; align-items: center; font-size: 12px; margin-top: 12px; }
-        .weather-pill { background: rgba(0,0,0,0.1); border-radius: 8px; padding: 6px 12px; font-size: 11px; margin-bottom: 15px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.1); }
+        /* 1. Header 視覺 - 完美回歸 */
+        .header-bg { background-color: #7d6b58; color: white; padding: 45px 20px; text-align: center; }
+        .weather-pill { background: rgba(0,0,0,0.1); border-radius: 8px; padding: 6px 14px; font-size: 11px; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.1); }
+        .hotel-tag { background-color: rgba(255,255,255,0.2); border-radius: 99px; padding: 5px 18px; display: inline-flex; align-items: center; font-size: 12px; margin-top: 12px; cursor: pointer; }
 
-        /* 行程標題左側粗線 */
-        .day-title { border-left: 5px solid #8d775f; padding-left: 12px; margin: 35px 0 15px 0; font-family: 'Noto Serif TC', serif; font-weight: 900; color: #5d4a36; font-size: 1.5rem; letter-spacing: 0.05em; }
+        /* 2. 行程標題左側粗線 - 完美回歸 */
+        .day-title { border-left: 6px solid #8d775f; padding-left: 15px; margin: 40px 0 20px 0; font-family: 'Noto Serif TC', serif; font-weight: 900; color: #5d4a36; font-size: 1.6rem; letter-spacing: 0.05em; }
         
-        /* 白色圓角卡片 */
-        .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); cursor: pointer; position: relative; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        .card::after { content: '查看攻略 \2192'; position: absolute; bottom: 15px; right: 20px; font-size: 9px; color: #8d775f; font-weight: bold; opacity: 0.5; }
+        /* 3. 白色圓角卡片 - 完整保留大標 + 小字描述 */
+        .card { background: white; border-radius: 16px; padding: 22px; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); cursor: pointer; position: relative; transition: all 0.2s; }
+        .card:active { transform: scale(0.97); background-color: #fcfcfc; }
         
-        .time-label { color: #b28c68; font-weight: 800; font-size: 11px; letter-spacing: 0.05em; display: block; margin-bottom: 4px; }
-        .card-title { font-size: 1.15rem; font-weight: 700; color: #333; }
-        .card-desc { font-size: 0.75rem; color: #999; margin-top: 4px; font-style: italic; }
+        .time-label { color: #b28c68; font-weight: 800; font-size: 11px; letter-spacing: 0.1em; display: block; margin-bottom: 6px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; color: #333; line-height: 1.4; }
+        .card-desc { font-size: 0.8rem; color: #999; margin-top: 6px; font-style: italic; }
 
-        /* 深色卡片 - 友愛市場 */
-        .dark-card { background: #1a1a1a; color: white; }
+        /* 深色卡片 - 友愛市場風格 */
+        .dark-card { background: #1a1a1a; color: white; border: none; }
         .dark-card .card-title { color: white; }
         .dark-card .time-label { color: #f3d4b0; }
         .dark-card .card-desc { color: #666; }
 
-        /* 彈窗 Modal */
-        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content { position: absolute; bottom: 0; left: 0; width: 100%; max-height: 85vh; background: white; border-radius: 25px 25px 0 0; padding: 30px; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s ease-out; }
+        /* 4. 彈窗 Modal 視覺回歸 */
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+        .modal-content { position: absolute; bottom: 0; left: 0; width: 100%; max-height: 85vh; background: white; border-radius: 30px 30px 0 0; padding: 35px 30px; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .modal-open .modal-content { transform: translateY(0); }
-        .food-row { border-bottom: 1px solid #f5f5f5; padding: 12px 0; display: flex; justify-content: space-between; align-items: center; }
-        .beef-free-tag { background: #fef2f2; color: #dc2626; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px; border: 1px solid #fee2e2; }
         
-        /* 底部導航 */
-        .bottom-nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #5d4a36; color: white; padding: 12px 40px; border-radius: 99px; font-weight: bold; font-size: 13px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 100; display: flex; align-items: center; gap: 8px; }
+        /* 店家導航行 */
+        .food-row { border-bottom: 1px solid #f8f8f8; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+        .nav-btn { background: #fdfaf5; color: #7d6b58; font-size: 10px; font-weight: 900; padding: 5px 12px; border-radius: 8px; border: 1px solid #eee; display: flex; align-items: center; gap: 4px; }
+        
+        /* 底部按鈕 */
+        .footer-btn { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: #5d4a36; color: white; padding: 14px 45px; border-radius: 99px; font-weight: bold; font-size: 14px; box-shadow: 0 8px 25px rgba(0,0,0,0.25); z-index: 100; text-decoration: none; display: flex; align-items: center; gap: 8px; }
     </style>
 </head>
 <body class="pb-32">
 
     <header class="header-bg">
         <div class="weather-pill">
-            <span id="weather-info"><i class="fas fa-spinner fa-spin mr-2"></i>即時氣溫讀取中...</span>
+            <span id="weather-text"><i class="fas fa-sun mr-1"></i> 台南 27°C</span>
             <span class="opacity-30">|</span>
-            <span id="outfit-info">穿搭建議加載中...</span>
+            <span id="outfit-text">適合穿短袖</span>
         </div>
-        <h1 class="serif text-3xl font-black tracking-[0.2em]">台南．慢旅時光</h1>
-        <p class="text-[9px] opacity-60 tracking-[0.4em] mt-1">SAFE FOOD | NO BEEF | PACKING GUIDE</p>
-        <div class="hotel-tag">
-            <i class="fas fa-map-marker-alt mr-2 text-[10px]"></i> 住宿地：古根嚼旅 (友愛街)
+        <h1 class="serif text-3xl font-black tracking-widest">台南．慢旅時光</h1>
+        <p class="text-[9px] opacity-60 tracking-[0.4em] mt-1 uppercase">Safe Food | No Beef | Guide</p>
+        <div class="hotel-tag" onclick="window.open('https://www.google.com/maps/search/?api=1&query=古根嚼旅')">
+            <i class="fas fa-hotel mr-2 text-[10px]"></i> 住宿：古根嚼旅 (友愛街)
         </div>
     </header>
 
-    <main class="max-w-2xl mx-auto px-6">
-
+    <main class="max-w-xl mx-auto px-6">
         <div class="day-title">DAY 01 府城美食啟程</div>
-        
         <div class="card" onclick="openModal('guohua')">
             <span class="time-label">15:00 CHECK-IN</span>
-            <h3 class="card-title">國華街：炸雞洋行巡禮</h3>
-            <p class="card-desc">無牛首選：炸雞洋行(大雞腿)、小卷米粉</p>
+            <h3 class="card-title">國華街美食：炸雞洋行</h3>
+            <p class="card-desc">大雞腿必點，台南無牛小吃一級戰區</p>
         </div>
-
         <div class="card dark-card" onclick="openModal('youai')">
             <span class="time-label">21:00 NIGHT LIFE</span>
             <h3 class="card-title">友愛市場：初衷燒烤</h3>
-            <p class="card-desc">飯店正對面！初衷燒烤與深夜小酌</p>
+            <p class="card-desc">飯店正對面！入夜後的精緻消夜聚落</p>
         </div>
 
         <div class="day-title">DAY 02 藝術與奇美之旅</div>
-        
         <div class="card" onclick="openModal('art')">
             <span class="time-label">10:30 ART MORNING</span>
             <h3 class="card-title">南美館 2 館 & 林百貨</h3>
-            <p class="card-desc">純白建築美學，感受古董電梯魅力</p>
+            <p class="card-desc">純白建築巡禮，古董電梯懷舊之旅</p>
         </div>
-
         <div class="card" style="border: 2px solid #8d775f" onclick="openModal('chimei')">
             <span class="time-label">14:00 HIGHLIGHT</span>
-            <h3 class="card-title">奇美博物館 (3 小時)</h3>
-            <p class="card-desc">全亞洲最美西洋典藏與兵器展</p>
+            <h3 class="card-title">奇美博物館 (3小時深度)</h3>
+            <p class="card-desc">探索阿波羅噴泉與西洋藝術瑰寶</p>
         </div>
-
         <div class="card" onclick="openModal('pork')">
             <span class="time-label">19:30 DINNER</span>
-            <h3 class="card-title">保安路：豬肉美食巡禮</h3>
-            <p class="card-desc">阿明豬心、阿鳳魚羹 (不含牛肉)</p>
+            <h3 class="card-title">保安路：豬肉美食殿堂</h3>
+            <p class="card-desc">阿明豬心、阿鳳魚羹，鮮甜無牛晚餐</p>
         </div>
 
-        <div class="day-title">DAY 03 老街慢活回程</div>
-        
+        <div class="day-title">DAY 03 老街散策回程</div>
         <div class="card" onclick="openModal('streets')">
-            <span class="time-label">10:00 MORNING WALK</span>
-            <h3 class="card-title">蝸牛巷、新美街散策</h3>
-            <p class="card-desc">巷弄慢活拍照，買齊連得堂煎餅</p>
+            <span class="time-label">10:00 WALK & GIFT</span>
+            <h3 class="card-title">蝸牛巷、新美街與伴手禮</h3>
+            <p class="card-desc">漫步台南巷弄，帶回最道地的點心</p>
         </div>
-
     </main>
 
     <div id="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="w-12 h-1 bg-stone-200 rounded-full mx-auto mb-6"></div>
             <div id="modal-body"></div>
-            <button onclick="closeModal()" class="w-full py-5 text-stone-400 text-[10px] font-bold tracking-widest mt-4">關閉視窗</button>
+            <button onclick="closeModal()" class="w-full py-5 text-stone-400 text-xs font-bold tracking-[0.3em] mt-4 uppercase">Close View</button>
         </div>
     </div>
 
-    <a href="https://www.google.com/maps/search/友愛街148號" target="_blank" class="bottom-nav">
-        <i class="fas fa-home"></i> 返回飯店導航
+    <a href="https://www.google.com/maps/search/?api=1&query=古根嚼旅" target="_blank" class="footer-btn">
+        <i class="fas fa-location-arrow"></i> 返回飯店導航
     </a>
 
     <script>
-        // 天氣 API 與 衣物建議邏輯
         async function updateWeather() {
             try {
                 const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=22.99&longitude=120.21&current_weather=true');
                 const data = await res.json();
                 const temp = Math.round(data.current_weather.temperature);
-                document.getElementById('weather-info').innerHTML = `<i class="fas fa-thermometer-half mr-1"></i> 台南 ${temp}°C`;
-                
-                const outfit = document.getElementById('outfit-info');
+                document.getElementById('weather-text').innerHTML = `<i class="fas fa-thermometer-half mr-1"></i> 台南 ${temp}°C`;
+                const outfit = document.getElementById('outfit-text');
                 if(temp >= 26) outfit.innerHTML = `<i class="fas fa-tshirt mr-1"></i> 今日熱，適合穿短袖`;
-                else if(temp < 20) outfit.innerHTML = `<i class="fas fa-tshirt mr-1"></i> 稍涼，建議長袖+外套`;
+                else if(temp < 20) outfit.innerHTML = `<i class="fas fa-vest mr-1"></i> 稍涼，建議穿長袖`;
                 else outfit.innerHTML = `<i class="fas fa-tshirt mr-1"></i> 舒適，短袖+薄外套`;
-            } catch (e) {
-                document.getElementById('weather-info').innerText = "台南 24°C";
-                document.getElementById('outfit-info').innerText = "建議洋蔥式穿法";
-            }
+            } catch (e) { }
         }
         updateWeather();
 
-        // 詳情資料 (包含新增的炸雞洋行與初衷燒烤)
         const details = {
-            'guohua': { 
-                title: '國華街美食 (推薦)', 
-                intro: '國華街必吃！特別推薦炸雞洋行的八兩雞，完全無牛，皮脆多汁。', 
-                foods: ['炸雞洋行 (大雞腿必點)', '葉家小卷米粉', '富盛號碗粿', '阿松割包', '修安扁擔豆花', '金得春捲', '水仙宮米糕'], 
-                nav: 'https://www.google.com/maps/search/國華街美食' 
-            },
-            'youai': { 
-                title: '友愛市場深夜食堂', 
-                intro: '飯店正對面。重點推薦「初衷燒烤」，豬肉串與雞肉串極具水準。', 
-                foods: ['初衷燒烤 (推薦)', '友愛鹹酥雞', '深夜炒饅頭', '有愛市場豬肉攤', '市場手作飯糰', '精釀啤酒攤'], 
-                nav: 'https://www.google.com/maps/search/友愛市場美食' 
-            },
-            'art': { title: '南美館與林百貨', intro: '散步感受建築美學，林百貨頂樓的神社必看。', foods: ['莉莉水果店', '福記肉圓', '南美春室甜點', '林百貨椪餅'], nav: 'https://www.google.com/maps/search/台南市美術館二館' },
-            'chimei': { title: '奇美博物館', intro: '建議下午兩點前抵達。推薦觀看阿波羅噴泉秀。', foods: ['仁德糖廠冰店', '奇美咖啡館', '深藍千層蛋糕'], nav: 'https://www.google.com/maps/search/奇美博物館' },
-            'pork': { title: '保安路豬肉美食', intro: '台南不吃牛的天堂，這裡的豬心處理技術是世界級的。', foods: ['阿明豬心冬粉', '阿鳳浮水魚羹', '醇涎坊意麵', '下大道旗魚羹', '阿龍香腸熟肉'], nav: 'https://www.google.com/maps/search/保安路美食' },
-            'streets': { title: '老街散策與伴手禮', intro: '帶份回憶回家。', foods: ['連得堂煎餅', '名東現烤蛋糕', '堯平布朗尼', '雙生綠豆沙牛奶'], nav: 'https://www.google.com/maps/search/蝸牛巷' }
+            'guohua': { title: '國華街美食', intro: '國華街必買「炸雞洋行」八兩雞，皮脆肉汁豐富。', foods: ['炸雞洋行 國華店', '葉家小卷米粉', '富盛號碗粿', '阿松割包', '修安扁擔豆花', '金得春捲'] },
+            'youai': { title: '友愛市場深夜食堂', intro: '飯店正對面。首推「初衷燒烤」的豬肉與雞肉串。', foods: ['初衷燒烤', '友愛鹹酥雞', '深夜炒饅頭', '有愛市場豬肉攤', '市場手作飯糰'] },
+            'chimei': { title: '奇美博物館', intro: '建議先看阿波羅噴泉，館內西洋兵器展極具震撼力。', foods: ['奇美博物館', '仁德糖廠冰店', '深藍千層蛋糕'] },
+            'art': { title: '藝術建築巡禮', intro: '南美館建築極美，林百貨可體驗復古風情。', foods: ['台南市美術館2館', '林百貨', '莉莉水果店', '福記肉圓'] },
+            'pork': { title: '保安路美食', intro: '阿明豬心與阿鳳魚羹是絕對經典。', foods: ['阿明豬心冬粉', '阿鳳浮水魚羹', '醇涎坊意麵', '阿龍香腸熟肉'] },
+            'streets': { title: '老街散策', intro: '帶回名東蛋糕與限量煎餅。', foods: ['連得堂煎餅', '名東現烤蛋糕', '堯平布朗尼', '雙生綠豆沙牛奶'] }
         };
 
         function openModal(key) {
             const item = details[key];
-            let foodHtml = item.foods.map(f => `<div class="food-row"><span>${f}</span><span class="beef-free-tag">NO BEEF</span></div>`).join('');
+            let foodHtml = item.foods.map(f => `
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(f + ' 台南')}" target="_blank" class="food-row">
+                    <span class="font-bold text-stone-700 text-sm">${f}</span>
+                    <span class="nav-btn">導航 <i class="fas fa-chevron-right text-[8px]"></i></span>
+                </a>
+            `).join('');
             document.getElementById('modal-body').innerHTML = `
                 <h2 class="serif text-2xl font-black text-stone-800 mb-2">${item.title}</h2>
-                <p class="text-stone-500 text-sm mb-6 leading-relaxed">${item.intro}</p>
-                <div class="border-l-4 border-[#7d6b58] pl-4 mb-4"><h3 class="text-xs font-bold text-stone-800 uppercase tracking-widest">美食清單 (無牛肉)</h3></div>
+                <p class="text-stone-500 text-sm mb-6 leading-relaxed italic">${item.intro}</p>
                 <div class="mb-6">${foodHtml}</div>
-                <a href="${item.nav}" target="_blank" class="w-full bg-[#7d6b58] text-white py-4 rounded-xl block text-center font-bold no-underline"><i class="fas fa-location-arrow mr-2"></i> 地圖導航</a>
             `;
             document.getElementById('modal').style.display = 'block';
             setTimeout(() => document.body.classList.add('modal-open'), 10);
